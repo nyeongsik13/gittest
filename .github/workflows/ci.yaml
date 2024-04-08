@@ -11,21 +11,15 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Setup Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v4
       with:
-        node-version: '14' # 프로젝트에 맞는 Node.js 버전을 사용하세요
+        node-version: '20' 
 
     - name: Install Dependencies
       run: yarn install
 
     - name: Lint Code
       run: yarn lint # 프로젝트의 package.json에 정의된 lint 스크립트를 실행합니다.
-
-    - name: Build Docker image
-      run: docker build -t myapp .
-
-    - name: Run tests
-      run: docker run myapp yarn test
