@@ -44,6 +44,8 @@ jobs:
           port: 22
           script_stop: true
           script: |
+            # Create ~/.npm-global directory if it doesn't exist
+            mkdir -p ~/.npm-global
             # Set npm prefix to user's home directory
             npm config set prefix '~/.npm-global'
             export PATH=~/.npm-global/bin:$PATH
@@ -56,7 +58,7 @@ jobs:
             # Stop the existing Node.js process
             pm2 stop all || true
             # Move to the project directory
-            cd ~/lv3
+            cd ~/your-app-directory
             # Install dependencies
             yarn install --production
             # Start the application using pm2
