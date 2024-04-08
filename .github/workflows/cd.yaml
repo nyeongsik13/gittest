@@ -28,7 +28,7 @@ jobs:
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
-          username: ec2-user
+          username: hyungsik
           key: ${{ secrets.SSH_KEY }}
           port: 22
           source: "./" # Copying everything from the root. Change this if needed.
