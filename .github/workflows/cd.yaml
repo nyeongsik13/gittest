@@ -28,7 +28,7 @@ jobs:
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
-          username: hyungsik
+          username: ubuntu
           key: ${{ secrets.SSH_KEY }}
           port: 22
           source: "./" # Copying everything from the root. Change this if needed.
@@ -39,7 +39,7 @@ jobs:
         uses: appleboy/ssh-action@v0.1.6
         with:
           host: ${{ secrets.SSH_HOST }}
-          username: hyungsik
+          username: ubuntu
           key: ${{ secrets.SSH_KEY }}
           port: 22
           script_stop: true
