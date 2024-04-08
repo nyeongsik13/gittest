@@ -58,7 +58,7 @@ jobs:
             # Stop the existing Node.js process
             pm2 stop all || true
             # Move to the project directory
-            cd ~/your-app-directory
+            cd ~/gittest
             # Install dependencies
             yarn install --production
             # Start the application using pm2
