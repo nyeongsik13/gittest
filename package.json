@@ -15,6 +15,8 @@
     "nodemon": "^3.1.0"
   },
   "scripts": {
-    "dev": "nodemon src/app.js"
+    "dev": "nodemon src/app.js",
+    "build": "echo \"No build step required\""
+    
   }
 }
