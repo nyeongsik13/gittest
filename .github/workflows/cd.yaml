@@ -34,7 +34,7 @@ jobs:
           source: "./" # Copying everything from the root. Change this if needed.
           target: "~/your-target-directory"
           strip_components: 1
- 
+
       - name: SSH Commands 
         uses: appleboy/ssh-action@v0.1.6
         with:
