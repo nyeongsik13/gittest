@@ -35,7 +35,7 @@ jobs:
           target: "~/your-target-directory"
           strip_components: 1
 
-      - name: SSH Commands
+      - name: SSH Commands 
         uses: appleboy/ssh-action@v0.1.6
         with:
           host: ${{ secrets.SSH_HOST }}
