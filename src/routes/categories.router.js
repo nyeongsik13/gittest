@@ -19,8 +19,8 @@ router.post('/', async(req, res,next)=>{
 })
 
 router.get('/', async(req, res, next)=>{
-    try
-        const result = await prisma.categories.findMany();
+    try{
+        const result = await prisma.category.findMany();
         res.staus(200).json(result);
     }catch(err){
         next(err);
