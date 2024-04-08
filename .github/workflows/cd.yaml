@@ -67,5 +67,7 @@ jobs:
             pm2 start app.js --name your-app-name
             # Check the pm2 process list
             pm2 list
+            # Move to the prisma directory
+            cd ~/gittest/prisma
             # Run prisma db push
             npx prisma db push
