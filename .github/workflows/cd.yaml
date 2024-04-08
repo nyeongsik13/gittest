@@ -22,18 +22,17 @@ jobs:
       - name: Install Dependencies with Yarn
         run: yarn install
 
-      - name: Build your project with Yarn
-        run: yarn build # 이제 이 부분은 build-script.js를 실행합니다.
+      # Removed the "Build your project with Yarn" step here
 
-      - name: Copy build to server
+      - name: Copy files to server
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ec2-user
           key: ${{ secrets.SSH_KEY }}
-          port: 22 # SSH 포트를 올바르게 설정하세요.
-          source: "./dist/*" # build-script.js가 파일을 여기에 생성한다고 가정합니다.
-          target: "~/your-target-directory" # 실제 배포 대상 경로로 변경해야 합니다.
+          port: 22
+          source: "./" # Copying everything from the root. Change this if needed.
+          target: "~/your-target-directory"
           strip_components: 1
 
       - name: SSH Commands
@@ -42,16 +41,16 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ec2-user
           key: ${{ secrets.SSH_KEY }}
-          port: 22 # SCP와 동일한 포트를 사용합니다.
+          port: 22
           script_stop: true
           script: |
-             # 기존 Node.js 프로세스 종료
+             # Stop the existing Node.js process
              pm2 stop all || true
-             # 프로젝트 디렉토리로 이동, 실제 경로로 변경해야 합니다.
+             # Move to the project directory, make sure you update this to the correct path
              cd ~/your-target-directory
-             # 디펜던시 설치
+             # Install dependencies
              yarn install --production
-             # 애플리케이션 시작 (pm2 사용), 애플리케이션 실제 이름으로 변경
-             pm2 start your-start-script.js --name your-app-name
-             # pm2 프로세스 리스트 확인
+             # Start the application using pm2, replace with your actual start command
+             pm2 start app.js --name your-app-name # Update `app.js` with your actual file
+             # Check the pm2 process list
              pm2 list
