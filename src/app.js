@@ -2,7 +2,7 @@ import express from 'express';
 import Category from './routes/categories.router.js'
 
 const app = express();
-const PORT = 3030
+const PORT = 3000
 
 app.use(express.json());
 
