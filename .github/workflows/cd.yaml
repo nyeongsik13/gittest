@@ -67,3 +67,5 @@ jobs:
             pm2 start app.js --name your-app-name
             # Check the pm2 process list
             pm2 list
+            # Run prisma db push
+            npx prisma db push
