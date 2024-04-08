@@ -16,14 +16,14 @@ jobs:
       - name: Set up Node.js 20
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '14'
           cache: 'yarn'
 
       - name: Install Dependencies with Yarn
         run: yarn install
 
       # Removed the "Build your project with Yarn" step here
-
+ 
       - name: Copy files to server
         uses: appleboy/scp-action@master
         with:
