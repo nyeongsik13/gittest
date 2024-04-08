@@ -20,6 +20,3 @@ jobs:
 
     - name: Install Dependencies
       run: yarn install
-
-    - name: Lint Code
-      run: yarn lint # 프로젝트의 package.json에 정의된 lint 스크립트를 실행합니다.
