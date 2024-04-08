@@ -32,7 +32,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: 22
           source: "./" # Copying everything from the root. Change this if needed.
-          target: "~/your-target-directory"
+          target: "~/gittest"
           strip_components: 1
 
       - name: SSH Commands 
